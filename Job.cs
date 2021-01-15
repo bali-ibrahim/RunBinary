@@ -1,4 +1,6 @@
 ﻿using Quartz;
+using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RunBinary
@@ -7,8 +9,10 @@ namespace RunBinary
     {
         public async Task Execute(IJobExecutionContext context)
         {
+            Console.WriteLine("Start Job.");
             var batchConfig = Utility.Configuration;
-            await batchConfig.File.RunProcessAsync(batchConfig.Arguments);
+            Console.WriteLine(JsonSerializer.Serialize(batchConfig));
+            batchConfig.File.RunProcessAsync(batchConfig.Arguments);
         }
     }
 }
