@@ -1,0 +1,6 @@
+{
+  "Configuration": {
+    "File": "cmd.exe",
+    "Arguments": "/c DIR"
+  }
+}
